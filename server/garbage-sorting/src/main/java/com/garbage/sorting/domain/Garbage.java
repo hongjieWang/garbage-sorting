@@ -1,6 +1,7 @@
 package com.garbage.sorting.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
@@ -17,5 +18,6 @@ public class Garbage implements Serializable {
     private Long id;
     private String garbageName;
     private String garbageCategoryNo;
+    @TableField(exist = false)
     private GarbageCategory garbageCategory;
 }
