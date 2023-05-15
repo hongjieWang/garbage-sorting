@@ -18,4 +18,7 @@ public class GarbageCategory implements Serializable {
     private String categoryExplain;
     private String categoryRequire;
     private String categoryCommon;
+    private String bgIcon;
+    private String bgItem;
+    private String color;
 }
