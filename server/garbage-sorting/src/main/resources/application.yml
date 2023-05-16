@@ -1,4 +1,6 @@
-# ??????
+garbage:
+  clientId: 8O6iDRorKU3bZEhSYyOs1QLe
+  clientSecret: YpjD0PjuD61DQVBSjFeRy7grbYZMKdBe
 # 开发环境配置
 server:
   # 服务器的HTTP端口，默认为8080
