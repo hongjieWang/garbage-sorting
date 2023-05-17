@@ -1,8 +1,11 @@
 package com.garbage.sorting.domain;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 用户表
@@ -14,6 +17,7 @@ public class User implements Serializable {
     /**
      * id
      */
+    @TableId(type = IdType.AUTO)
     private Long id;
     /**
      * openId
@@ -43,4 +47,8 @@ public class User implements Serializable {
      * 积分
      */
     private Integer integral;
+    /**
+     * 创建时间
+     */
+    private Date createTime;
 }

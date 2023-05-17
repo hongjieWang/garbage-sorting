@@ -1,6 +1,10 @@
 garbage:
   clientId: 8O6iDRorKU3bZEhSYyOs1QLe
   clientSecret: YpjD0PjuD61DQVBSjFeRy7grbYZMKdBe
+
+wechar:
+  appId: wxa4970922c3aa1df9
+  secret: 0d2fbd9b248405c8754a4982fbf766d7
 # 开发环境配置
 server:
   # 服务器的HTTP端口，默认为8080
