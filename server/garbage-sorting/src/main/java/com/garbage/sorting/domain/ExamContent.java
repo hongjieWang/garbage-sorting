@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 考题内容
@@ -30,9 +31,18 @@ public class ExamContent implements Serializable {
     /**
      * 题目顺序
      */
-    private Integer order;
+    private Integer examOrder;
     /**
      * 题目名称
      */
     private String name;
+    /**
+     * 题库ID
+     */
+    private Long garbageId;
+
+    /**
+     * 创建时间
+     */
+    private Date createDate;
 }

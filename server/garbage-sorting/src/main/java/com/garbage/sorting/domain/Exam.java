@@ -1,10 +1,13 @@
 package com.garbage.sorting.domain;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
 /**
  * 考试题库
@@ -16,11 +19,11 @@ public class Exam implements Serializable {
     @TableId(type = IdType.AUTO)
     private Long id;
     /**
-     * 用户ID
+     * 用户OpenID
      */
-    private Long userId;
+    private String openId;
     /**
-     * 答完
+     * 答完 0：继续答题  1：创建新题库
      */
     private Integer finish;
     /**
@@ -44,5 +47,15 @@ public class Exam implements Serializable {
      */
     private Integer error;
 
+    /**
+     * 创建时间
+     */
+    private Date createDate;
+
+    /**
+     * 题库集合
+     */
+    @TableField(exist = false)
+    private List<ExamContent> examContents;
 
 }
