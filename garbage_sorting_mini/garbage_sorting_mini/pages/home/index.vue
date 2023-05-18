@@ -43,8 +43,12 @@
 				this.navBarTop = meniButtonInfo.top;
 				this.navBarHeight = meniButtonInfo.height;
 			}
-			this.isRegister = cookie.get("isRegister");
-			console.log(this.isRegister)
+		},
+		onLoad() {
+			uni.showShareMenu({
+				withShareTicket: true,
+				menus: ["shareAppMessage", "shareTimeline"]
+			});
 		},
 		data() {
 			return {

@@ -18,8 +18,8 @@
 
 		<view class="flex justify-end mt-5">
 			<view class="flex mr-5">
-				<button @click="lastQuestion" v-show="lastClick" class="btn">上一题</button>
-				<button @click="nextQuestion" v-show="nextClick" class="btn ml-2">下一题</button>
+				<button @click="lastQuestion" v-show="lastClick" :disabled="questionClick" class="btn">上一题</button>
+				<button @click="nextQuestion" v-show="nextClick" :disabled="questionClick" class="btn ml-2">下一题</button>
 			</view>
 		</view>
 
@@ -66,6 +66,7 @@
 				atPresent: 1,
 				nextClick: true,
 				lastClick: false,
+				questionClick: false,
 				name: "老鼠药",
 				answer: "",
 				examContents: [],
@@ -83,9 +84,12 @@
 					this.examContent = res.data.data.examContents[res.data.data.atPresent];
 					this.atPresent = res.data.data.atPresent;
 					this.total = res.data.data.total;
+					this.lastClick = this.atPresent >= 1;
+					this.nextClick = this.atPresent < this.total - 1;
 				});
 			},
 			questionHander(answer) {
+				this.questionClick = true;
 				this.answer = answer;
 				this.examContent.chooseAnswer = answer;
 				request.get('/exam/answerQuestions', {
@@ -95,6 +99,7 @@
 				}, {
 					login: false
 				}).then(res => {
+					this.questionClick = false;
 					//答题完成
 					if (res.data.data.finish == 1) {
 						uni.navigateTo({
@@ -143,6 +148,15 @@
 		padding-right: 40rpx;
 		border-radius: 40rpx;
 		font-size: 24rpx;
+	}
+
+	button[disabled] {
+		background-color: #000000 !important;
+		color: #FFF !important;
+		padding-left: 40rpx !important;
+		padding-right: 40rpx !important;
+		border-radius: 40rpx !important;
+		font-size: 24rpx !important;
 	}
 
 	.questionBtn {
