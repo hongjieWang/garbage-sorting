@@ -3,7 +3,7 @@
 		<view class="title" style="width: 646rpx; height: 447rpx; margin-left: 52rpx; margin-top: 80rpx; ">
 			<view class="flex justify-center">
 				<view style="margin-top: 84rpx; font-size: 72rpx; font-weight: bold;">
-					{{categoryList[index].garbageName}}
+					{{categoryItem.garbageName}}
 				</view>
 			</view>
 			<view class="flex justify-center">
@@ -17,18 +17,18 @@
 		<!--分类-->
 		<view style="width: 100%;" class="flex justify-center">
 			<view style="width: 646rpx; height: 290rpx; margin-top: 20rpx; background-size: 100% 100%;"
-				:style="{'background-image':'url('+categoryList[index].garbageCategory.bgItem+')'}">
+				:style="{'background-image':'url('+categoryItem.garbageCategory.bgItem+')'}">
 				<view class="flex">
 					<view class=" ml-6" style="margin-top: 70rpx;">
-						<image :src="categoryList[index].garbageCategory.bgIcon" style="width: 142rpx; height: 142rpx;">
+						<image :src="categoryItem.garbageCategory.bgIcon" style="width: 142rpx; height: 142rpx;">
 						</image>
 					</view>
 					<view style="margin-top: 70rpx; margin-left: 10rpx;">
 						<view style="color: #FFF; font-size: 36rpx; font-weight: bold;">
-							{{categoryList[index].garbageCategory.categoryName}}
+							{{categoryItem.garbageCategory.categoryName}}
 						</view>
 						<view style="color: #FFF; font-size: 26rpx; width: 380rpx;">
-							{{categoryList[index].garbageCategory.categoryExplain}}
+							{{categoryItem.garbageCategory.categoryExplain}}
 						</view>
 					</view>
 				</view>
@@ -42,11 +42,13 @@
 		<view style="width: 100%; color: #006FE5; font-size: 24rpx;" class="flex justify-center mt-2">
 
 			<view v-if="index>0">
-				<button style="height: 60rpx; line-height: 60rpx; background-color: #000; color: #FFF;" @click="last">上一个</button>
+				<button style="height: 60rpx; line-height: 60rpx; background-color: #000; color: #FFF;"
+					@click="last">上一个</button>
 			</view>
 
 			<view v-if="showNext" class="ml-4">
-				<button style="height: 60rpx; line-height: 60rpx; background-color: #000; color: #FFF;" @click="next">下一个</button>
+				<button style="height: 60rpx; line-height: 60rpx; background-color: #000; color: #FFF;"
+					@click="next">下一个</button>
 			</view>
 		</view>
 
@@ -85,6 +87,9 @@
 			return {
 				value: "",
 				categoryList: [],
+				categoryItem: {
+					garbageName: "暂无资料"
+				},
 				size: 0,
 				index: 0,
 				showNext: true,
@@ -111,15 +116,18 @@
 				}).then(res => {
 					this.categoryList = res.data.data;
 					this.size = res.data.data.length;
+					this.categoryItem = this.categoryList[0];
 				});
 			},
 			next() {
 				this.index = this.index + 1;
 				this.showNext = this.index < this.size - 1;
+				this.categoryItem = this.categoryList[this.index];
 			},
 			last() {
 				this.index = this.index - 1;
 				this.showNext = this.index < this.size - 1;
+				this.categoryItem = this.categoryList[this.index];
 			}
 		}
 	}

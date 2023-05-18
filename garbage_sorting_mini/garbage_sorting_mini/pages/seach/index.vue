@@ -10,7 +10,7 @@
 		<!--历史搜索-->
 		<view class="mt-4 row ml-6 mr-6" style="height: 0rpx;">
 			<view v-for="(item,j) in historySeach" :key="j">
-				<view class="tagLabel">{{item}}</view>
+				<view @click="seachHistory(item)" class="tagLabel">{{item}}</view>
 			</view>
 		</view>
 
@@ -52,6 +52,11 @@
 				this.addHistorySeach(this.garbage);
 				uni.navigateTo({
 					url: '/pages/result/index?value=' + this.garbage
+				})
+			},
+			seachHistory(garbage) {
+				uni.navigateTo({
+					url: '/pages/result/index?value=' + garbage
 				})
 			}
 		}

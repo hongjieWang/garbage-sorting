@@ -18,8 +18,8 @@
 
 		<view class="flex justify-end mt-5">
 			<view class="flex mr-5">
-				<view @click="lastQuestion" class="btn">上一题</view>
-				<view @click="nextQuestion" class="btn ml-2">下一题</view>
+				<button @click="lastQuestion" v-show="lastClick" class="btn">上一题</button>
+				<button @click="nextQuestion" v-show="nextClick" class="btn ml-2">下一题</button>
 			</view>
 		</view>
 
@@ -64,6 +64,8 @@
 				openId: "",
 				total: 10,
 				atPresent: 1,
+				nextClick: true,
+				lastClick: false,
 				name: "老鼠药",
 				answer: "",
 				examContents: [],
@@ -104,10 +106,14 @@
 			nextQuestion() {
 				this.atPresent = this.atPresent + 1;
 				this.examContent = this.examContents[this.atPresent];
+				this.lastClick = this.atPresent >= 1;
+				this.nextClick = this.atPresent < this.total - 1;
 			},
 			lastQuestion() {
 				this.atPresent = this.atPresent - 1;
 				this.examContent = this.examContents[this.atPresent];
+				this.lastClick = this.atPresent >= 1;
+				this.nextClick = this.atPresent < this.total - 1;
 			}
 		}
 	}
@@ -133,8 +139,6 @@
 	.btn {
 		background-color: #000;
 		color: #FFF;
-		padding-top: 20rpx;
-		padding-bottom: 20rpx;
 		padding-left: 40rpx;
 		padding-right: 40rpx;
 		border-radius: 40rpx;
