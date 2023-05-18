@@ -72,6 +72,16 @@ public class ExamServiceImpl extends ServiceImpl<ExamMapper, Exam> implements Ex
         return AjaxResult.success(exam);
     }
 
+    @Override
+    public AjaxResult showExamContent(Long examId) {
+        LambdaQueryWrapper<ExamContent> wrapper = new LambdaQueryWrapper<>();
+        wrapper.eq(ExamContent::getExamId, examId);
+        List<ExamContent> list = examContentService.list(wrapper);
+        Exam exam = baseMapper.selectById(examId);
+        exam.setExamContents(list);
+        return AjaxResult.success(exam);
+    }
+
     private void calculationSource(Exam exam) {
         LambdaQueryWrapper<ExamContent> wrapper = new LambdaQueryWrapper<>();
         wrapper.eq(ExamContent::getExamId, exam.getId());

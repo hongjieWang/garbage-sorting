@@ -36,4 +36,9 @@ public class ExamController {
     public AjaxResult answerQuestions(@RequestParam("examId") Long examId, @RequestParam("order") Integer order, @RequestParam("answer") String answer) {
         return examService.answerQuestions(examId, order, answer);
     }
+
+    @GetMapping("/showExamContent")
+    public AjaxResult showExamContent(Long examId) {
+        return examService.showExamContent(examId);
+    }
 }

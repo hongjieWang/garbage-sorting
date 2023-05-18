@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -38,9 +39,10 @@ public class WeCharController {
             wrapper.eq(User::getOpenId, openId);
             User user = userService.getOne(wrapper);
             if (Objects.isNull(user)) {
-                userModel.setIsRegister(Boolean.FALSE);
-            } else {
-                userModel.setIsRegister(Boolean.TRUE);
+                user = new User();
+                user.setOpenId(openId);
+                user.setCreateTime(new Date());
+                userService.save(user);
             }
         }
         return AjaxResult.success(userModel);

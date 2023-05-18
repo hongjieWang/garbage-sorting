@@ -27,4 +27,12 @@ public interface ExamService extends IService<Exam> {
      * @return
      */
     AjaxResult answerQuestions(Long examId, Integer order, String answer);
+
+    /**
+     * 查看所有答案
+     *
+     * @param examId 试卷ID
+     * @return
+     */
+    AjaxResult showExamContent(Long examId);
 }
