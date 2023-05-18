@@ -1,10 +1,10 @@
 garbage:
-  clientId: 8O6iDRorKU3bZEhSYyOs1QLe
-  clientSecret: YpjD0PjuD61DQVBSjFeRy7grbYZMKdBe
+  clientId: ""
+  clientSecret: ""
 
 wechar:
-  appId: wxa4970922c3aa1df9
-  secret: 0d2fbd9b248405c8754a4982fbf766d7
+  appId: ""
+  secret: ""
 # 开发环境配置
 server:
   # 服务器的HTTP端口，默认为8080
@@ -29,8 +29,8 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://rm-bp13l746k96nizze6qo.mysql.rds.aliyuncs.com:3306/garbage?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
-    username: fitness
-    password: fitness_2022
+    username: ""
+    password: ""
   servlet:
     multipart:
       max-file-size: 50MB
