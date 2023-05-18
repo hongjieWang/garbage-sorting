@@ -1,0 +1,1 @@
+<view><button class="avatar-wrapper" open-type="chooseAvatar" data-event-opts="{{[['chooseavatar',[['onChooseAvatar',['$event']]]]]}}" bindchooseavatar="__e"><image class="avatar" src="{{avatarUrl}}"></image></button><input class="weui-input" type="nickname" placeholder="请输入昵称"/></view>

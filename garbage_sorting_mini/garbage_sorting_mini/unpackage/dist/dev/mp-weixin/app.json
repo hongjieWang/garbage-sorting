@@ -1,9 +1,14 @@
 {
   "pages": [
     "pages/home/index",
+    "pages/complete/index",
+    "pages/showAnswer/index",
+    "pages/questions/index",
+    "pages/exam/index",
     "pages/result/index",
     "pages/seach/index",
-    "pages/category/index"
+    "pages/category/index",
+    "pages/login/index"
   ],
   "subPackages": [],
   "window": {

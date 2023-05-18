@@ -86,4 +86,11 @@
   background-image: url("");
   background-size: cover;
 }
+.buttonLogin.data-v-71e217db {
+  height: 280rpx;
+  width: 646rpx;
+  background-image: url("https://shop.julywhj.cn/2023/garbage/home_btn_bg.png");
+  background-size: 100% 100%;
+  border-radius: 50rpx;
+}
 

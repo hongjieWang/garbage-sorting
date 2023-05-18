@@ -24,13 +24,16 @@
 			<view class="wenzi" style="width: 200rpx; height:200rpx;" @click="seach"></view>
 		</view>
 
+		<!--进行测试-->
 		<view class="text-center" style="height: 280rpx;margin-top: 22rpx;">
-			<image src="https://shop.julywhj.cn/2023/garbage/c_test.png" style="height: 280rpx; width: 646rpx;"></image>
+			<button class="buttonLogin" @click="exam"></button>
 		</view>
 	</view>
 </template>
 
 <script>
+	import request from '@/common/request.js';
+	import cookie from "@/common/cookie.js";
 	export default {
 		created() {
 			//获取手机状态栏高度
@@ -40,9 +43,14 @@
 				this.navBarTop = meniButtonInfo.top;
 				this.navBarHeight = meniButtonInfo.height;
 			}
+			this.isRegister = cookie.get("isRegister");
+			console.log(this.isRegister)
 		},
 		data() {
 			return {
+				avatarUrl: "",
+				isRegister: false,
+				openId: "",
 				// 状态栏高度
 				navBarTop: 0,
 				// 导航栏高度
@@ -112,7 +120,6 @@
 					sizeType: ['compressed'], //可以指定是原图还是压缩图，默认二者都有
 					sourceType: ['camera'], //从相册选择
 					success: function(res) {
-						console.log(JSON.stringify(res.tempFiles));
 						uni.uploadFile({
 							url: "https://hryreadingroom.cn/garbage/upload/picture",
 							name: "file",
@@ -125,6 +132,28 @@
 						})
 					}
 				});
+			},
+			exam() {
+				uni.login({
+					"provider": "weixin",
+					"onlyAuthorize": true,
+					success: function(event) {
+						const {
+							code
+						} = event
+						request.get('/weChar/getOpenId', {
+							code: event.code
+						}, {
+							login: false
+						}).then(res => {
+							cookie.set("openId", res.data.data.openId, 1000)
+							uni.navigateTo({
+								url: '/pages/exam/index'
+							})
+						});
+					},
+					fail: function(err) {}
+				})
 			}
 		}
 	}
@@ -203,5 +232,13 @@
 	.c_test {
 		background-image: url("");
 		background-size: cover;
+	}
+
+	.buttonLogin {
+		height: 280rpx;
+		width: 646rpx;
+		background-image: url('https://shop.julywhj.cn/2023/garbage/home_btn_bg.png');
+		background-size: 100% 100%;
+		border-radius: 50rpx;
 	}
 </style>

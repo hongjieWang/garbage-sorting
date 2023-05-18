@@ -16,6 +16,49 @@
 				}
 			}
 		}, {
+			"path": "pages/complete/index",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom",
+				"app-plus": {
+					"backgroundColorTop": "transparent", // 窗口顶部背景颜色值
+					"background": "transparent",
+					"bounce": "none"
+				}
+			}
+
+		}, {
+			"path": "pages/showAnswer/index",
+			"style": {
+				"navigationBarTitleText": "垃圾分类鉴别",
+				"enablePullDownRefresh": false
+			}
+
+		}, {
+			"path": "pages/questions/index",
+			"style": {
+				"navigationBarTitleText": "垃圾分类鉴别",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/exam/index",
+			"style": {
+				"navigationBarTitleText": "垃圾分类鉴别",
+				"navigationBarTextStyle": "white",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom",
+				"app-plus": {
+					"backgroundColorTop": "transparent", // 窗口顶部背景颜色值
+					"background": "transparent",
+					"scrollIndicator": false, // 窗口是否显示滚动条
+					"popGesture": "none", // 窗口的侧滑返回功能
+					"animationType": "fade-in", // 窗口显示的动画效果
+					"animationDuration": 200 // 窗口显示动画的持续时间
+				}
+			}
+		}, {
 			"path": "pages/result/index",
 			"style": {
 				"navigationBarTitleText": "垃圾分类鉴别",
@@ -36,7 +79,15 @@
 				"navigationBarTitleText": "垃圾分类鉴别",
 				"enablePullDownRefresh": false
 			}
+		}, {
+			"path": "pages/login/index",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
 		}
+
 
 
 	],

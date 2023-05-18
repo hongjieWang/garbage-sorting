@@ -1,0 +1,28 @@
+
+view {
+	display: block;
+}
+.avatar {
+	display: block;
+	width: 56px;
+	height: 56px;
+}
+button {
+	border-radius: 4px;
+	font-size: 17px;
+	font-weight: 700;
+	line-height: 1.41176471;
+	padding: 8px 24px;
+}
+.weui-input {
+	width: 100%;
+	border: 0;
+	outline: 0;
+	-webkit-appearance: none;
+	background-color: transparent;
+	font-size: inherit;
+	color: inherit;
+	height: 1.41176471em;
+	line-height: 1.41176471;
+}
+
